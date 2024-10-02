@@ -1,0 +1,29 @@
+// Define numbor by binary search
+
+def binary_search(array, key):
+    left = 0
+    right = len(array) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if array[mid] == key:
+            return mid
+        elif array[mid] < key:
+            left = mid + 1
+        else:
+            right = mid - 1
+        return -1
+
+
+sonlar = []
+for i in range(10):
+    son = int(input(f"{i+1} - sonni kiriting"))
+    sonlar.append(son)
+    sonlar.sort()
+
+  
+key = int(input("Kalit sonni kiriting"))
+result = binary_search(sonlar, key)
+if result != -1:
+    print(f"{key} raqami massivda indeksi", result, "da joylashgan.")
+else:
+    print(f"{key}raqami massivda topilmadi.")
